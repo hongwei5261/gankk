@@ -5,6 +5,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="about">About</string>
     <string name="load_text">loading...</string>
     <string name="no_data">暂无数据</string>
 </resources>

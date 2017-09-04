@@ -22,10 +22,10 @@ public class GanKKInfo {
     public String source;
     @SerializedName("type")
     public String type;
-    @SerializedName("url")
-    public String used;
     @SerializedName("used")
-    public boolean url;
+    public boolean used;
+    @SerializedName("url")
+    public String url;
     @SerializedName("who")
     public String who;
 }

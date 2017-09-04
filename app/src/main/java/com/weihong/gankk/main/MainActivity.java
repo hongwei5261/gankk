@@ -1,5 +1,6 @@
 package com.weihong.gankk.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.weihong.gankk.R;
+import com.weihong.gankk.about.AboutActivity;
 import com.weihong.gankk.util.GanKKConstant;
 
 public class MainActivity extends AppCompatActivity
@@ -75,6 +77,9 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        } else if (id == R.id.about) {
+            startActivity(new Intent(this, AboutActivity.class));
             return true;
         }
 

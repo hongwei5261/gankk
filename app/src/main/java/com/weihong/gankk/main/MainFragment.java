@@ -1,11 +1,15 @@
 package com.weihong.gankk.main;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
@@ -68,6 +72,19 @@ public class MainFragment extends BaseFragment implements MainContract.View {
     @Override
     public void initViews() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                GanKKInfo info = (GanKKInfo) adapter.getData().get(position);
+                if (GanKKConstant.GANK_TYPE_MOOD.equals(info.type)) {
+
+                } else {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(info.url));
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     @Override
@@ -103,8 +120,8 @@ public class MainFragment extends BaseFragment implements MainContract.View {
             return;
         } else {
             currentPage++;
+            adapter.addData(ganKKInfos);
         }
-        adapter.addData(ganKKInfos);
         refreshLayout.finishLoadmore(200);
     }
 
