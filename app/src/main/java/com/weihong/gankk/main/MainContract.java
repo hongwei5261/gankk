@@ -17,9 +17,8 @@
 package com.weihong.gankk.main;
 
 import com.weihong.gankk.base.BasePresenter;
-import com.weihong.gankk.base.BaseView;
+import com.weihong.gankk.base.BaseViewZ;
 import com.weihong.gankk.data.bean.GanKKInfo;
-import com.weihong.gankk.util.GanKKType;
 
 import java.util.List;
 
@@ -28,7 +27,7 @@ import java.util.List;
  */
 interface MainContract {
 
-    interface View extends BaseView<Presenter> {
+    interface View extends BaseViewZ<Presenter> {
         void updateData(List<GanKKInfo> ganKKInfos);
     }
 

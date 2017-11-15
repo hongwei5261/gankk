@@ -19,6 +19,7 @@ import android.view.View;
 
 import com.weihong.gankk.R;
 import com.weihong.gankk.about.AboutActivity;
+import com.weihong.gankk.about.AboutActivityZ;
 import com.weihong.gankk.util.GanKKConstant;
 
 public class MainActivity extends AppCompatActivity
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         } else if (id == R.id.about) {
-            startActivity(new Intent(this, AboutActivity.class));
+            startActivity(new Intent(this, AboutActivityZ.class));
             return true;
         }
 

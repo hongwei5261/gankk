@@ -15,7 +15,7 @@ import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.weihong.gankk.GanKKApplication;
 import com.weihong.gankk.R;
-import com.weihong.gankk.base.BaseFragment;
+import com.weihong.gankk.base.BaseFragmentZ;
 import com.weihong.gankk.data.bean.GanKKInfo;
 import com.weihong.gankk.util.CheckUtil;
 import com.weihong.gankk.util.GanKKConstant;
@@ -30,7 +30,7 @@ import butterknife.BindView;
  * Created by wei.hong on 2017/8/24.
  */
 
-public class MainFragment extends BaseFragment implements MainContract.View {
+public class MainFragment extends BaseFragmentZ implements MainContract.View {
 
     public static final String ARG_TYPE = "type";
 

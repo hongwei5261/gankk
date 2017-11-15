@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.weihong.gankk.R;
-import com.weihong.gankk.base.BaseActivity;
+import com.weihong.gankk.base.BaseActivityZ;
 import com.weihong.gankk.widget.WeatherView;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import butterknife.BindView;
  * Created by wei.hong on 2017/8/31.
  */
 
-public class AboutActivity extends BaseActivity {
+public class AboutActivity extends BaseActivityZ {
     @BindView(R.id.recyclerView)
     RecyclerView recyclerView;
     @BindView(R.id.weatherView)
