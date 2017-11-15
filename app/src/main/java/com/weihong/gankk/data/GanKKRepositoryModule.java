@@ -2,9 +2,10 @@ package com.weihong.gankk.data;
 
 import android.content.Context;
 
-import com.weihong.gankk.data.remote.interceptors.CacheInterceptor;
+import com.weihong.gankk.data.remote.interceptors.CacheInterceptorZ;
 import com.weihong.gankk.data.remote.interceptors.LoggingInterceptor;
-import com.weihong.gankk.data.remote.interceptors.NetWorkInterceptor;
+import com.weihong.gankk.data.remote.interceptors.LoggingInterceptorZ;
+import com.weihong.gankk.data.remote.interceptors.NetWorkInterceptorZ;
 import com.weihong.gankk.util.FileUtil;
 
 import java.io.File;
@@ -51,9 +52,9 @@ public class GanKKRepositoryModule {
     OkHttpClient provideOKHttpClient(Context context, Cache cache) {
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
                 .cache(cache)
-                .addInterceptor(new LoggingInterceptor())
-                .addInterceptor(new CacheInterceptor(context))
-                .addNetworkInterceptor(new NetWorkInterceptor())
+                .addInterceptor(new LoggingInterceptorZ())
+                .addInterceptor(new CacheInterceptorZ(context))
+                .addNetworkInterceptor(new NetWorkInterceptorZ())
                 .connectTimeout(10, TimeUnit.SECONDS);
         return builder.build();
     }

@@ -1,6 +1,5 @@
 package com.weihong.gankk.base
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -16,23 +15,13 @@ abstract class BaseFragmentZ : Fragment() {
 
     private var mUnbinder: Unbinder? = null
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        var rootView = inflater!!.inflate(getContentViewId(), container, false)
-        mUnbinder = ButterKnife.bind(this, rootView)
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        var rootView = inflater?.inflate(getContentViewId(), container, false)
+        mUnbinder = ButterKnife.bind(this, rootView as View)
         initViews()
         initLogic()
         return rootView
     }
-//    Error:(30, 44) Smart cast to 'View!' is impossible, because 'mRootView' is a mutable property that could have been changed by this time
-
     /**
      * 初始化view
      */
@@ -52,7 +41,7 @@ abstract class BaseFragmentZ : Fragment() {
         super.onDestroy()
 
         if (mUnbinder != Unbinder.EMPTY) {
-            mUnbinder!!.unbind()
+            mUnbinder?.unbind()
         }
         mUnbinder = null
     }

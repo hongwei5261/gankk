@@ -48,7 +48,7 @@ open abstract class BaseActivityZ : Activity() {
         super.onDestroy()
 
         if (mUnbinder != Unbinder.EMPTY) {
-            mUnbinder!!.unbind()
+            mUnbinder?.unbind()
         }
         mUnbinder = null
     }

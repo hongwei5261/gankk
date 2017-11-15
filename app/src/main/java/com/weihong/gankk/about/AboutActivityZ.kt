@@ -20,14 +20,15 @@ class AboutActivityZ : BaseActivityZ() {
     }
 
     override fun initLogic() {
-        recyclerView.adapter = TestAdapter(getTestData());
+        recyclerView.adapter = TestAdapter(getTestData())
     }
 
     override fun getContentViewId(): Int = R.layout.activity_about
 
     private fun getTestData(): List<String> {
         var data = ArrayList<String>()
-        (0..49).forEach { i -> data.add("itme kk" + (i + 1)) }
+        // $表示字符串模板
+        (0..49).forEach { i -> data.add("item kk $i") }
         return data
     }
 
@@ -47,7 +48,7 @@ class AboutActivityZ : BaseActivityZ() {
         constructor(data: List<String>) : this(android.R.layout.test_list_item, data)
 
         override fun convert(helper: BaseViewHolder?, item: String?) {
-            helper!!.getView<TextView>(android.R.id.text1).text = item
+            helper?.getView<TextView>(android.R.id.text1)?.text = item
         }
     }
 
