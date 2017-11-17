@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit
  * Created by weihong on 17-11-16.
  */
 class RemoteRepositoryZ constructor(context: Context) {
-    val baseUrl = ""
+    val baseUrl = "http://gank.io/api/data/"
 
     private var mRetrofit: Retrofit
 

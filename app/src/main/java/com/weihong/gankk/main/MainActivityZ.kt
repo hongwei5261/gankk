@@ -120,7 +120,7 @@ class MainActivityZ : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         var foundFragment: Fragment? = fragmentManager!!.findFragmentByTag(name)
 
         if (foundFragment == null) {
-            foundFragment = MainFragment.newInstance(name)
+            foundFragment = MainFragmentZ().newInstance(name)
         }
 
         if (foundFragment == null) {

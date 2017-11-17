@@ -4,20 +4,23 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.view.View
 import android.view.ViewGroup
+import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.weihong.gankk.R
 import com.weihong.gankk.base.BaseFragmentZ
 import com.weihong.gankk.data.bean.GanKKInfoZ
 import com.weihong.gankk.util.CheckUtil
 import com.weihong.gankk.util.GanKKConstant
-import kotlinx.android.synthetic.main.fragment_main.*
+import org.jetbrains.anko.find
 
 /**
  * Created by weihong on 17-11-16.
  */
 class MainFragmentZ : BaseFragmentZ(), MainContractZ.View {
 
-    private val ARG_TYPE = "type"
+    private val ARG_TYPE = MainFragmentZ::class.simpleName
     var type: String = GanKKConstant.GANK_TYPE_ALL
 
     private var adapter: MainAdapterZ? = null
@@ -40,7 +43,11 @@ class MainFragmentZ : BaseFragmentZ(), MainContractZ.View {
         mMainPresenter = MainPresenterZ(context, this)
     }
 
-    override fun initViews() {
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var refreshLayout: SmartRefreshLayout
+    override fun initViews(rootView: View) {
+        recyclerView = rootView.find(R.id.recyclerView)
+        refreshLayout = rootView.find(R.id.refreshLayout)
         recyclerView.layoutManager = LinearLayoutManager(context)
         adapter?.setOnItemChildClickListener { adapter, view, position ->
             val info = adapter.data[position] as GanKKInfoZ
