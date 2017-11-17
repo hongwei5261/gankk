@@ -66,7 +66,7 @@ class MainFragmentZ : BaseFragmentZ(), MainContractZ.View {
         recyclerView.adapter = adapter
 
         refreshLayout.setOnRefreshListener { layout -> layout.finishRefresh(2000) }
-        refreshLayout.setOnRefreshListener { mMainPresenter?.getData(type, GanKKConstant.PAGE_SIZE, currentPage) }
+        refreshLayout.setOnLoadmoreListener { mMainPresenter?.getData(type, GanKKConstant.PAGE_SIZE, currentPage) }
         refreshLayout.isEnableRefresh = false
         adapter?.setEmptyView(R.layout.load_view, recyclerView.parent as ViewGroup?)
         mMainPresenter?.getData(type, GanKKConstant.PAGE_SIZE, currentPage)
