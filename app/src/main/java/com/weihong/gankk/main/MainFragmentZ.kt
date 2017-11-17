@@ -20,7 +20,7 @@ import org.jetbrains.anko.find
  */
 class MainFragmentZ : BaseFragmentZ(), MainContractZ.View {
 
-    private val ARG_TYPE = MainFragmentZ::class.simpleName
+    private val ARG_TYPE = "type"
     var type: String = GanKKConstant.GANK_TYPE_ALL
 
     private var adapter: MainAdapterZ? = null
